@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
          .httpBasic();
     }
  
+    
     @Autowired  
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser(user)
