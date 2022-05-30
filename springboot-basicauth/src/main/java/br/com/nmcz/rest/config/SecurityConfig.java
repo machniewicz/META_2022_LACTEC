@@ -30,15 +30,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
          .httpBasic();
     }
  
+    
     @Autowired  
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser(user)
 				.password(new BCryptPasswordEncoder().encode(password)).roles(roles);
 	}
-
-//    public void configureGlobal(AuthenticationManagerBuilder auth) 
-//            throws Exception 
-//    {
-//        auth.inMemoryAuthentication().withUser("admin").password("password").roles("USER");
-//    }
 }
